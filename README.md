@@ -1,5 +1,15 @@
 > **Ovia Inc fork — modification reference.** We maintain this fork of [openclaw/openclaw](https://github.com/openclaw/openclaw). **Modifications by Ovia Inc:** this reference note, added November 2026 as part of the collection-wide documentation pass; the expanded Ovia README treatment (Ovia section, story, topics and description) follows in the daily improvement queue. Upstream code and content are otherwise unchanged from the fork point, except where a later commit in this repository says so. Upstream credit: openclaw. Licence: MIT (see LICENSE where present).
 
+## Ovia Inc layer
+
+This fork carries an **Ovia Inc layer**: a small, additive set of material that adapts the assistant to OVIA operations work — client conversations answered, scheduling and reminders, quote and invoice follow-up, records and document automation — in English, French, and Spanish. The layer never modifies upstream files; everything OVIA adds lives in OVIA-owned locations so upstream syncs stay clean.
+
+- **Overview and maintenance:** [ovia/README.md](ovia/README.md)
+- **Example configuration:** [ovia/config.example.json5](ovia/config.example.json5) — the native JSON5 format, placeholders only
+- **Skills** (native format, under `skills/`): `ovia-client-conversations`, `ovia-scheduling-followup`, `ovia-quote-invoice-chase`
+
+Licence: MIT, as upstream (see `LICENSE`). Upstream credit: openclaw/openclaw.
+
 ---
 
 # 🦞 OpenClaw — Personal AI Assistant
