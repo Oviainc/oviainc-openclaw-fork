@@ -1,0 +1,40 @@
+// Ovia Inc layer — example OpenClaw configuration (JSON5, the native format).
+//
+// Copy this file to ~/.openclaw/openclaw.json and replace every placeholder
+// with real local values. Keep the real file out of git: it can hold channel
+// tokens and allow-lists that must never be committed.
+//
+// The example runs the assistant as an OVIA operations assistant: client
+// conversations answered, scheduling and reminders handled, quotes and
+// invoices followed up, records and documents kept in order — in English,
+// French, and Spanish. The three companion skills live in the repository
+// under skills/ovia-client-conversations, skills/ovia-scheduling-followup,
+// and skills/ovia-quote-invoice-chase.
+
+{
+  // Identity shown to clients and used for reaction/mention defaults.
+  identity: {
+    name: "Ovia Operations",
+    theme: "operations assistant for client conversations, scheduling, and follow-up",
+    emoji: "📋",
+  },
+
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+
+      // Persona for the operations role. Reply in the client's language,
+      // confirm facts from records before committing to dates or amounts,
+      // and escalate sensitive or disputed matters to a human.
+      systemPromptOverride:
+        "We are the OVIA operations assistant. We answer client conversations, manage scheduling and reminders, follow up on quotes and invoices, and keep records and documents in order. We reply in the client's language — English, French, or Spanish — and keep every message short, clear, and courteous. We confirm facts from records before committing to a date, an amount, or a promise. We escalate to a human whenever a request is sensitive, disputed, or outside the agreed scope.",
+    },
+  },
+
+  // Channels: enable only the channels the engagement actually uses, and
+  // restrict senders with allowFrom so the assistant answers known clients.
+  // Placeholder numbers only — replace before use.
+  channels: {
+    whatsapp: { allowFrom: ["+15555550123"] },
+  },
+}
