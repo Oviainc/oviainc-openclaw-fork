@@ -1,14 +1,71 @@
-> **Ovia Inc fork — modification reference.** We maintain this fork of [openclaw/openclaw](https://github.com/openclaw/openclaw). **Modifications by Ovia Inc:** this reference note, added November 2026 as part of the collection-wide documentation pass; the expanded Ovia README treatment (Ovia section, story, topics and description) follows in the daily improvement queue. Upstream code and content are otherwise unchanged from the fork point, except where a later commit in this repository says so. Upstream credit: openclaw. Licence: MIT (see LICENSE where present).
+# Ovia Inc — OpenClaw (fork of openclaw/openclaw)
 
-## Ovia Inc layer
+![Ovia Inc — OpenClaw logo from the upstream project assets](docs/assets/openclaw-logo-text.png)
 
-This fork carries an **Ovia Inc layer**: a small, additive set of material that adapts the assistant to OVIA operations work — client conversations answered, scheduling and reminders, quote and invoice follow-up, records and document automation — in English, French, and Spanish. The layer never modifies upstream files; everything OVIA adds lives in OVIA-owned locations so upstream syncs stay clean.
+We maintain this fork of [openclaw/openclaw](https://github.com/openclaw/openclaw), OpenClaw: a personal AI assistant that runs on the owner's own devices and answers on the channels already in use — WhatsApp, Telegram, Slack, Discord, Signal, iMessage, and many more listed in the upstream documentation below. A Gateway acts as the control plane, companion apps and nodes on macOS, iOS, and Android add voice, canvas, and device features, and skills extend what the assistant can do. Upstream credit: the OpenClaw project and its contributors. Licence: MIT (see LICENSE).
 
-- **Overview and maintenance:** [ovia/README.md](ovia/README.md)
-- **Example configuration:** [ovia/config.example.json5](ovia/config.example.json5) — the native JSON5 format, placeholders only
-- **Skills** (native format, under `skills/`): `ovia-client-conversations`, `ovia-scheduling-followup`, `ovia-quote-invoice-chase`
+**Our main site:** https://oviainc.github.io/ai-services/
 
-Licence: MIT, as upstream (see `LICENSE`). Upstream credit: openclaw/openclaw.
+**Upstream repository:** https://github.com/openclaw/openclaw
+
+## What this is
+
+The primary OpenClaw fork in our collection, and the one fork here that carries working material of our own beyond documentation:
+
+- The complete upstream assistant at the fork point: the Gateway and agent runtime (TypeScript, `src/` and `packages/`), the channel integrations, the Control UI (`ui/`), the macOS, iOS, and Android apps (`apps/`), the bundled skills and extensions, and the full documentation set (`docs/`).
+- **The Ovia Inc layer** (added November 15, 2026, in additive commits only): an overview and maintenance note at [ovia/README.md](ovia/README.md), an example configuration at [ovia/config.example.json5](ovia/config.example.json5) in the native JSON5 format with placeholders only, and three starter skills in the repository's native skill format under `skills/` — `ovia-client-conversations`, `ovia-scheduling-followup`, and `ovia-quote-invoice-chase`. The layer never modifies upstream files; everything added lives in OVIA-owned locations so upstream syncs stay clean.
+- The upstream security and operator material preserved in full below and beside the README: `SECURITY.md`, `VISION.md`, `CONTRIBUTING.md`, and the install, onboarding, and configuration guides.
+
+The project site already recorded on this fork is https://openclaw.ai (verified live at this pass), with documentation at https://docs.openclaw.ai. Upstream carries about 395,083 stars and 82,959 forks at the time of this pass — among the largest projects in the collection by a wide margin.
+
+## Story
+
+OpenClaw opened as a public project on November 24, 2025, built around a single-user, local-first idea: a personal assistant that runs on hardware the owner controls, keeps data under the owner's control, and meets people on the messaging channels already in daily use rather than inside one vendor application. The upstream README preserved below states the shape plainly — the Gateway is only the control plane; the product is the assistant — and the project grew at exceptional speed from that start.
+
+We forked the project on April 21, 2026, at the April 21, 2026 snapshot (tip commit 2641b05, a reasoning-effort handling fix). The collection once held four OpenClaw forks; on November 15, 2026, the three duplicates were removed on a direct decision to keep the best one, and this fork is the keeper — the single OpenClaw seat in the collection, and the seat that carries the Ovia layer described above. The archive of ClawHub skill versions held separately in the collection (`skills_Ovia_Inc`, treated on its own day) records the wider skill ecosystem around the project at March 24, 2026.
+
+What we evaluate and build with here is the assistant as an operations surface, with the limits kept visible:
+
+- **The Ovia layer in practice** — whether the three starter skills hold up as working patterns: client conversations answered and drafted with tone rules and human escalation, scheduling and reminder sequences, and quote and invoice follow-up, each in English, French, and Spanish.
+- **Channel breadth against control** — many channels through one gateway is the attraction; the upstream security model, direct-message access defaults, and sandboxing notes preserved below are the part that decides whether a deployment stays under the owner's control.
+- **Skills as the extension unit** — the native skill format (a directory per skill, one SKILL.md per skill) is the packaging pattern the layer follows, and the pattern worth comparing against the other skill collections held in this organisation.
+- **Local-first operation** — an assistant that runs on own devices, with own data, matches the standing preference for local, low-cost operation wherever the work allows; cost, latency, and model choice stay visible in the configuration rather than hidden behind a hosted default.
+- **Sync cost at extreme upstream speed** — upstream moves faster than any other project in the collection (see Sync status); holding a fork here is a standing decision about when a fresh snapshot is worth the adoption work, not a routine merge.
+
+Where the project fits our work:
+
+- **AI agents** — OpenClaw is the personal-agent end of the agent shelf: one assistant, many channels, skills for tasks, against the multi-agent harnesses and fleet tools held elsewhere in the collection.
+- **Context engineering** — the workspace, memory, and skill files the assistant loads are context in working form; the layer's configuration example shows how persona, escalation, and task wording are set before any conversation starts.
+- **Business intelligence and data** — a lighter fit: the assistant reaches records, documents, and follow-up queues through skills and tools, and the quote and invoice skill is the direct business-operations example in the layer.
+- **Virtual production** — a lighter fit again: voice, canvas, and device nodes show how an assistant surface extends beyond text, the same multi-surface question production work asks of its tools.
+
+## Modifications by Ovia Inc
+
+Documentation and the additive Ovia layer only; no upstream file is modified, renamed, or deleted. In order: a modification reference on November 4, 2026; the Ovia layer on November 15, 2026 (overview, example configuration, three `ovia-` skills, and a short layer section in the README); and this expanded treatment on November 23, 2026 (Ovia section, story, picture, and repository details), which replaces the November 4 note and folds the November 15 layer section into the fuller account above. The layer's own maintenance note at `ovia/README.md` remains the working map of what the layer contains. Where a later commit in this repository says otherwise, that commit governs.
+
+## Sync status
+
+Diverged, by design of this pass and by the scale of upstream. This fork carries the April 21, 2026 snapshot (tip commit 2641b05) plus seven commits of our own — the November 4, 2026 documentation note, the five November 15, 2026 layer commits, and the November 15, 2026 README layer section — ahead by 7 and behind by 98,413 commits at this pass, with upstream HEAD pushed November 23, 2026. The distance is seven months of exceptionally fast upstream development, so a sync here is a fresh snapshot adoption with a layer-survival check (the three `skills/ovia-*` directories and the `ovia/` folder), exactly as the layer's maintenance note prescribes — not a routine merge. No sync was applied in this pass; a reviewed adoption is recommended for Ja when the assistant work needs a current upstream base.
+
+## Related repositories
+
+- [ai-services](https://github.com/Oviainc/ai-services) — our flagship site: AI agents, machine learning in production, and AI products for business
+- [skills_Ovia_Inc](https://github.com/Oviainc/skills_Ovia_Inc) — the archive shelf: a complete dated record of the ClawHub skill ecosystem at March 24, 2026, held for packaging and supply-chain review research, with the upstream safety warning carried in full there
+- [OpenDots-Ovia-Inc](https://github.com/Oviainc/OpenDots-Ovia-Inc) — always-on AI coworkers across text, calls, and chat tools; the closest neighbouring fork on the agent-harness shelf
+- [hermes-agent-ovia-inc](https://github.com/Oviainc/hermes-agent-ovia-inc) — a self-improving agent harness held for evaluation on the same shelf
+- [trail-code-ovia-inc](https://github.com/Oviainc/trail-code-ovia-inc) — coding-agent tooling that speeds and contextualises work on a codebase
+
+## Working with us
+
+Start from our site: https://oviainc.github.io/ai-services/ — the contact form there is the fastest way to reach us.
+
+## Licence
+
+MIT, as recorded in the LICENSE file in this fork and upstream. Upstream credit remains with the OpenClaw project and its contributors.
+
+---
+
+Ovia Inc — Artificial Intelligence & Context Engineering. Based in Canada, working wherever the work is.
 
 ---
 
